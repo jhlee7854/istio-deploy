@@ -8,7 +8,7 @@ spec:
     extensionProviders:
     - name: otel
       envoyOtelAls:
-        service: opentelemetry-collector.observability.svc.cluster.local
+        service: application-opentelemetry-collector.observability.svc.cluster.local
         port: 4317
         logFormat:
           labels:
