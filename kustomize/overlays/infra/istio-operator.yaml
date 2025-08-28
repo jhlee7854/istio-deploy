@@ -16,6 +16,7 @@ spec:
             namespace: "%ENVIRONMENT(POD_NAMESPACE)%"
             cluster: "%ENVIRONMENT(ISTIO_META_CLUSTER_ID)%"
             mesh: "%ENVIRONMENT(ISTIO_META_MESH_ID)%"
+            service_name: "%ENVIRONMENT(SERVICE_NAME)%"
     defaultProviders:
       accessLogging:
       - envoy
