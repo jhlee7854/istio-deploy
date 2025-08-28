@@ -12,11 +12,14 @@ spec:
         port: 4317
         logFormat:
           labels:
+            workload: "%ENVIRONMENT(ISTIO_META_WORKLOAD_NAME)%"
             pod: "%ENVIRONMENT(POD_NAME)%"
             namespace: "%ENVIRONMENT(POD_NAMESPACE)%"
             cluster: "%ENVIRONMENT(ISTIO_META_CLUSTER_ID)%"
             mesh: "%ENVIRONMENT(ISTIO_META_MESH_ID)%"
-            service_name: "%ENVIRONMENT(SERVICE_NAME)%"
+            status: "%RESPONSE_CODE%"
+            message: "%LOCAL_REPLY_BODY%"
+            protocol: "%PROTOCOL%"
     defaultProviders:
       accessLogging:
       - envoy
