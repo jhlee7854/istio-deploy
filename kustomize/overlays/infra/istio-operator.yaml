@@ -21,7 +21,6 @@ spec:
             method: "%REQ(:METHOD)%"
             path: "%REQ(X-ENVOY-ORIGINAL-PATH?:PATH)%"
             status: "%RESPONSE_CODE%"
-            service.name: "istio-envoy-access-log"
     defaultProviders:
       accessLogging:
       - envoy
