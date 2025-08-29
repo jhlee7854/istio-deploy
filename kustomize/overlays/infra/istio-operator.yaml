@@ -5,23 +5,23 @@ spec:
   tag: "1.27.0"
   meshConfig:
     accessLogFile: /dev/stdout
-    extensionProviders:
-    - name: otel
-      envoyOtelAls:
-        service: application-opentelemetry-collector.observability.svc.cluster.local
-        port: 4317
-        logFormat:
-          labels:
-            pod: "%ENVIRONMENT(POD_NAME)%"
-            namespace: "%ENVIRONMENT(POD_NAMESPACE)%"
-            cluster: "%ENVIRONMENT(ISTIO_META_CLUSTER_ID)%"
-            mesh: "%ENVIRONMENT(ISTIO_META_MESH_ID)%"
-            workload: "%ENVIRONMENT(ISTIO_META_WORKLOAD_NAME)%"
-            protocol: "%PROTOCOL%"
-            method: "%REQ(:METHOD)%"
-            path: "%REQ(X-ENVOY-ORIGINAL-PATH?:PATH)%"
-            status: "%RESPONSE_CODE%"
-    defaultProviders:
-      accessLogging:
-      - envoy
-      - otel
+    # extensionProviders:
+    # - name: otel
+    #   envoyOtelAls:
+    #     service: application-opentelemetry-collector.observability.svc.cluster.local
+    #     port: 4317
+    #     logFormat:
+    #       labels:
+    #         pod: "%ENVIRONMENT(POD_NAME)%"
+    #         namespace: "%ENVIRONMENT(POD_NAMESPACE)%"
+    #         cluster: "%ENVIRONMENT(ISTIO_META_CLUSTER_ID)%"
+    #         mesh: "%ENVIRONMENT(ISTIO_META_MESH_ID)%"
+    #         workload: "%ENVIRONMENT(ISTIO_META_WORKLOAD_NAME)%"
+    #         protocol: "%PROTOCOL%"
+    #         method: "%REQ(:METHOD)%"
+    #         path: "%REQ(X-ENVOY-ORIGINAL-PATH?:PATH)%"
+    #         status: "%RESPONSE_CODE%"
+    # defaultProviders:
+    #   accessLogging:
+    #   - envoy
+    #   - otel
