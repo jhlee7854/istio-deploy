@@ -5,6 +5,7 @@ spec:
   tag: "1.27.0"
   meshConfig:
     accessLogFile: /dev/stdout
+    enablePrometheusMerge: false
     # extensionProviders:
     # - name: otel
     #   envoyOtelAls:
