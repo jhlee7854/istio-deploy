@@ -12,6 +12,9 @@ spec:
         service: opentelemetry-collector.observability.svc.cluster.local
         resource_detectors:
           environment: {}
+    defaultProviders:
+      tracing:
+      - otel-tracing
     
     # extensionProviders:
     # - name: otel
