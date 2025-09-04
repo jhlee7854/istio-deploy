@@ -12,7 +12,7 @@ spec:
     extensionProviders:
     - name: otel-access-log
       envoyOtelAls:
-        service: opentelemetry-daemonset-collector.observability.svc.cluster.local
+        service: opentelemetry-deployment-collector.observability.svc.cluster.local
         port: 4317
         logFormat:
           labels:
@@ -25,7 +25,7 @@ spec:
     - name: otel-tracing
       opentelemetry:
         port: 4317
-        service: opentelemetry-daemonset-collector.observability.svc.cluster.local
+        service: opentelemetry-deployment-collector.observability.svc.cluster.local
         resource_detectors:
           environment: {}
     defaultProviders:
