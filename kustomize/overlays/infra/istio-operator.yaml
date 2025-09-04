@@ -5,7 +5,6 @@ spec:
   tag: "1.27.0"
   meshConfig:
     accessLogFile: /dev/stdout
-    # accessLogFormat: "[%START_TIME%] \"%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%\" %RESPONSE_CODE% %RESPONSE_FLAGS% %RESPONSE_CODE_DETAILS% %CONNECTION_TERMINATION_DETAILS% \"%UPSTREAM_TRANSPORT_FAILURE_REASON%\" %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% \"%REQ(X-FORWARDED-FOR)%\" \"%REQ(USER-AGENT)%\" \"%REQ(X-REQUEST-ID)%\" \"%REQ(:AUTHORITY)%\" \"%UPSTREAM_HOST%\" %UPSTREAM_CLUSTER_RAW% %UPSTREAM_LOCAL_ADDRESS% %DOWNSTREAM_LOCAL_ADDRESS% %DOWNSTREAM_REMOTE_ADDRESS% %REQUESTED_SERVER_NAME% %ROUTE_NAME% \"%REQ(x-b3-traceid)%\"\n"
     enableTracing: true
     defaultConfig:
       tracing:
@@ -17,16 +16,12 @@ spec:
         port: 4317
         logFormat:
           labels:
-            pod: "%ENVIRONMENT(POD_NAME)%"
-            namespace: "%ENVIRONMENT(POD_NAMESPACE)%"
             cluster: "%ENVIRONMENT(ISTIO_META_CLUSTER_ID)%"
             mesh: "%ENVIRONMENT(ISTIO_META_MESH_ID)%"
-            workload: "%ENVIRONMENT(ISTIO_META_WORKLOAD_NAME)%"
             protocol: "%PROTOCOL%"
             method: "%REQ(:METHOD)%"
             path: "%REQ(X-ENVOY-ORIGINAL-PATH?:PATH)%"
             status: "%RESPONSE_CODE%"
-            traceID: "%REQ(x-b3-traceid)%"
     - name: otel-tracing
       opentelemetry:
         port: 4317
